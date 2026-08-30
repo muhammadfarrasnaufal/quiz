@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UBS Quiz Adventure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Universitas Bani Saleh</p>
+          <h1>UBS Quiz Adventure</h1>
+        </div>
+
+        <div class="header-controls">
+          <div class="mode-switcher" aria-label="Device mode selector">
+            <button class="mode-btn active" data-mode="desktop" type="button" title="Desktop Mode">💻</button>
+            <button class="mode-btn" data-mode="mobile" type="button" title="Mobile Mode">📱</button>
+          </div>
+          <div class="theme-switcher" aria-label="Theme selector">
+            <button class="theme-btn active" data-theme="cyberpunk" type="button">Cyberpunk</button>
+            <button class="theme-btn" data-theme="minimal" type="button">Minimal</button>
+            <button class="theme-btn" data-theme="anime" type="button">Anime</button>
+            <button class="theme-btn" data-theme="luxury" type="button">Luxury</button>
+            <button class="theme-btn" data-theme="sosmed" type="button">Sosmed</button>
+            <button class="theme-btn" data-theme="viral" type="button">Viral</button>
+          </div>
+          <div class="score-pill">
+            <span>Skor</span>
+            <strong id="scoreDisplay">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section id="startScreen" class="screen active">
+        <div class="card intro-card">
+          <span class="badge badge-primary">Game Mode</span>
+          <h2>Siap jadi mahasiswa UBS?</h2>
+          <p>
+            Quiz ini campuran antara knowledge, meme, dan situasi kampus. Soal
+            fakta UBS/prodi/PMB punya skor, sementara soal personality dan meme
+            lebih untuk hiburan.
+          </p>
+          <ul class="intro-list">
+            <li>30 pertanyaan</li>
+            <li>9 soal bernilai skor</li>
+            <li>Fun mode tanpa tekanan</li>
+          </ul>
+          <button id="startBtn" class="primary-btn">Mulai Quiz</button>
+        </div>
+      </section>
+
+      <section id="quizScreen" class="screen">
+        <div class="card question-card">
+          <div class="meta-row">
+            <span id="levelLabel" class="badge badge-secondary">Level</span>
+            <span id="progressLabel" class="progress-text">1 / 30</span>
+          </div>
+
+          <div class="progress-shell" aria-label="Progress">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+
+          <h2 id="questionText" class="question-text">Pertanyaan</h2>
+
+          <div id="optionsContainer" class="options"></div>
+
+          <div id="feedback" class="feedback hidden"></div>
+
+          <div class="actions">
+            <button id="nextBtn" class="primary-btn">Lanjut</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="nameScreen" class="screen">
+        <div class="card name-card">
+          <span class="badge badge-primary">Langkah Terakhir</span>
+          <h2>Siapa nama kamu?</h2>
+          <p>Simpan nama kamu di leaderboard untuk menunjukkan performa terbaik!</p>
+          <input id="playerNameInput" type="text" placeholder="Masukkan nama" class="name-input" maxlength="20" />
+          <button id="submitNameBtn" class="primary-btn">Lanjut ke Hasil</button>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="card result-card">
+          <span class="badge badge-success">Hasil Akhir</span>
+          <h2 id="resultTitle">Selesai!</h2>
+          <p id="resultMessage">Kamu sudah menyelesaikan quiz.</p>
+
+          <div class="result-summary">
+            <div>
+              <span>Skor</span>
+              <strong id="finalScore">0</strong>
+            </div>
+            <div>
+              <span>Benar</span>
+              <strong id="correctCount">0</strong>
+            </div>
+            <div>
+              <span>Jumlah Soal</span>
+              <strong id="totalScored">0</strong>
+            </div>
+          </div>
+
+          <div class="leaderboard-panel">
+            <div class="leaderboard-header">
+              <span>Leaderboard</span>
+              <span>Top 5</span>
+            </div>
+            <ol id="leaderboardList" class="leaderboard-list"></ol>
+          </div>
+
+          <button id="restartBtn" class="primary-btn">Main Lagi</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
